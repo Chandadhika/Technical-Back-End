@@ -1,0 +1,1 @@
+//1. funnyCase makes each letter in a string the opposite case as the one before
