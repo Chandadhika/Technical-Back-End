@@ -30,3 +30,23 @@ var doubled = map(numbers, element => {
 
 // Prints `[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]`
 console.log(doubled);
+
+
+// 3. Filter lets you loop over an array and remove elements
+var filter = (arr, cb) => {
+    var result = [];
+    for (var index = 0; index < arr.length; index++) {
+        var currentElement = arr[index];
+        if (cb(currentElement, index)) {
+            result.push(currentElement);
+        }
+    }
+    return result;
+};
+
+var evenNumbers = filter(numbers, currentElement => {
+    return currentElement % 2 === 0; // 2-နဲ့ စားလို့ ပြတ်တဲ့စုံဂဏန်း 
+});
+
+// Prints `[2, 4, 6, 8, 10]`
+console.log(evenNumbers);
