@@ -50,3 +50,45 @@ var evenNumbers = filter(numbers, currentElement => {
 
 // Prints `[2, 4, 6, 8, 10]`
 console.log(evenNumbers);
+
+
+// 4. netflixQueue is an object for managing your netflix queue
+var netflixQueue = {
+    // ဇာတ်ကား ၄-ကား ထည့်ထားခြင်း
+    queue: [
+        'Mr. Nobody',
+        'The Matrix',
+        'Eternal Sunshine of the Spotless Mind',
+        'Fight Club'
+    ],
+
+    // ကြည့်ပြီးသား ဇာတ်ကားကို ပယ်ဖျက်ခြင်း
+    watchMovie: () => {
+        this.queue.pop();
+    },
+
+    // နောက်ထပ်ကြည့်ရန် ဇာတ်ကားအသစ်ကို ပြသခြင်း
+    addMovie: movie => {
+        this.queue.unshift(movie);
+    },
+
+    printQueue: () => {
+        var list = '';
+        for (var i = this.queue.length - 1; i >= 0; i--) {
+            var currentMovie = this.queue[i];
+            list += this.queue.length - i + '. ' + currentMovie + '\n'; // (+= ယခင်ရှိသော တန်ဖိုးကို ယူပြီး အသစ်ထည့်သွင်းခြင်း)
+        }
+        console.log(list);
+    }
+};
+
+console.log('Printing movie queue!\n'); // then next (\n-နောက်တစ်ခုသို့ ပြောင်းရန်)
+netflixQueue.printQueue(); // အစဥ်လိုက် ပြသခြင်း
+netflixQueue.watchMovie(); // ကြည့်ပြီးသားကို စာရင်းမှ ပယ်ဖျက်ခြင်း
+console.log('\nWatched a movie!\n');
+console.log('Printing movie queue!\n');
+netflixQueue.printQueue(); // စီးရီးကို ပြန်လည်ပြသခြင်း
+console.log('\nAdding a movie!\n');
+netflixQueue.addMovie('Black Swan');
+console.log('Printing movie queue!\n');
+netflixQueue.printQueue();
